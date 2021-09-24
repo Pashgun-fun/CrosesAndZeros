@@ -1,3 +1,8 @@
+$(function () {
+    $('.field').css({"display": "none"})
+})
+
+
 var countClick = 1;
 class Player1 {
     constructor() {
@@ -52,7 +57,7 @@ class Player1 {
             item.querySelectorAll('.field__smallCell').forEach((elem,i)=>{
                 elem.addEventListener('click', (e) => {
                     if (countClick % 2 != 0){
-                        elem.insertAdjacentHTML('afterbegin', '<img src="./img/close.svg" alt=".">');
+                        elem.insertAdjacentHTML('afterbegin', '<img src="../img/close.svg" alt=".">');
                         elem.style.pointerEvents = "none";
                         countClick++;
                         this.help(i)
@@ -68,7 +73,7 @@ class Player1 {
                             this.bigCell.splice(index,1);
                         }
                     }else{
-                        elem.insertAdjacentHTML('afterbegin', '<img src="./img/circle-ring.svg" alt=".">');
+                        elem.insertAdjacentHTML('afterbegin', '<img src="../img/circle-ring.svg" alt=".">');
                         elem.style.pointerEvents = "none";
                         countClick++;
                         this.help(i)
@@ -91,4 +96,3 @@ class Player1 {
 }
 let pasha = new Player1();
 pasha.moveFirst();
-
