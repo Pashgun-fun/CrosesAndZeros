@@ -100,3 +100,8 @@ body body {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+.win {
+  pointer-events: none;
+  background: black;
+}

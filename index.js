@@ -14,73 +14,75 @@ class Player1 {
                     ];
         this.data1 = [[],[],[],[],[],[],[],[],[]];
         this.data2 = [[],[],[],[],[],[],[],[],[]];
+        this.winIndex = [];
+    }
+    comp(index,data) {
+        for (var i in this.win){
+            var win = true;
+            for (var j in this.win[i]){
+                var id = this.win[i][j];
+                var ind  = data[index].indexOf(id);
+
+                if (ind == -1){
+                    win = false;
+                }
+            }
+            if (win) return true;
+        }
+        return  false
+    }
+    help(i){
+        for (let n = 0; n < this.bigCell.length; n++){
+            this.bigCell[n].style.pointerEvents = "auto";
+            this.bigCell[n].style.border = "1px solid #555555";
+        }
+        let k = 0;
+        while (k < this.bigCell.length) {
+            if (k != i) {
+                this.bigCell[k].style.pointerEvents = "none";
+            } else if (k == i) {
+                var el = this.bigCell[i]
+                el.style.border = "2px solid green";
+            }
+            k++;
+        }
     }
     moveFirst(){
-        console.log(this.data2)
         this.bigCell.forEach((item, index) => {
             item.querySelectorAll('.field__smallCell').forEach((elem,i)=>{
                 elem.addEventListener('click', (e) => {
                     if (countClick % 2 != 0){
-                        //Добавление крестика, симуляция хода первого игрока
                         elem.insertAdjacentHTML('afterbegin', '<img src="./img/close.svg" alt=".">');
                         elem.style.pointerEvents = "none";
                         countClick++;
-                        //Помощь в игре, блокирвание нажатия не на те ячейки, которые можно по правилам
-                        for (let n = 0; n < this.bigCell.length; n++){
-                            this.bigCell[n].style.pointerEvents = "auto";
-                            this.bigCell[n].style.border = "1px solid #555555";
-                        }
-                        let k = 0;
-                        while (k < this.bigCell.length){
-                            if (k!=i){
-                                this.bigCell[k].style.pointerEvents = "none";
-                            }else if(k == i){
-                                var el = this.bigCell[i]
-                                el.style.border = "2px solid green";
-                            }
-                            k++;
-                        }
-                        //Добавление ходов в массив по индексам, для последующего сравнения
+                        this.help(i)
                         this.data1[index].push(parseInt(i));
-                        //Сортируем массив значений для удобства и быстроты сравнивания
                         let t = 0;
                         while (t < this.data2.length){
                             this.data2[t].sort((a,b)=>a-b)
                             t++;
                         }
-                        //Сравнение массивов для определения победителя
+                        if (this.comp(index,this.data1)){
+                            this.bigCell[index].style.pointerEvents = "none";
+                            this.winIndex.push(index);
+                            this.bigCell.splice(index,1);
+                        }
                     }else{
-                        //Добавление нолика, симуляция хода второго игрока
                         elem.insertAdjacentHTML('afterbegin', '<img src="./img/circle-ring.svg" alt=".">');
                         elem.style.pointerEvents = "none";
                         countClick++;
-                        //Помощь в игре, блокирвание нажатия не на те ячейки, которые можно по правилам
-                        for (let n = 0; n < this.bigCell.length; n++){
-                            this.bigCell[n].style.pointerEvents = "auto";
-                            this.bigCell[n].style.border = "1px solid #555555";
-                        }
-                        let k = 0;
-                        while (k < this.bigCell.length){
-                            if (k!=i){
-                                this.bigCell[k].style.pointerEvents = "none";
-                            }else if(k == i){
-                                var el = this.bigCell[i]
-                                el.style.border = "2px solid green";
-                            }
-                            k++;
-                        }
-                        //Добавление ходов в массив по индексам, для последующего сравнения
+                        this.help(i)
                         this.data2[index].push(parseInt(i));
-                        //Сортируем массив значений для удобства и быстроты сравнивания
                         let t = 0;
                         while (t < this.data2.length){
                             this.data2[t].sort((a,b)=>a-b)
                             t++;
                         }
-                        //Сравнение массивов для определения победителя
-                        //*Сравниваем сначла длины подмассивов, если они не одинаковые, то дальше бессмысленно
-                        //*Если же они одинаковые прогоняем их итерацией одной по индексам элементов
-                        //*И если какой то из элементов одинаков, то кто то выйграл
+                        if (this.comp(index,this.data2)) {
+                            this.bigCell[index].style.pointerEvents = "none";
+                            this.winIndex.push(index);
+                            this.bigCell.splice(index,1);
+                        }
                     }
                 });
             })
