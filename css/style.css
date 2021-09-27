@@ -24,29 +24,9 @@ body body {
 .field__cross-name {
   margin-left: 15px;
 }
-.field__cross-name::after {
-  content: "";
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background: url("../img/close.svg") no-repeat;
-  background-size: cover;
-  margin-left: 30px;
-  vertical-align: sub;
-}
 .field__circle-name {
   margin-left: auto;
   margin-right: 15px;
-}
-.field__circle-name::before {
-  content: "";
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background: url("../img/circle-ring.svg") no-repeat;
-  background-size: cover;
-  margin-right: 30px;
-  vertical-align: sub;
 }
 .field__cross-player, .field__circle-player {
   position: absolute;
@@ -180,4 +160,139 @@ body body {
   position: absolute;
   left: 0;
   top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.start__section {
+  width: 60vw;
+  background: white;
+  border-radius: 5px;
+  padding: 20px;
+}
+.start__section label {
+  font-size: 1rem;
+  color: black;
+  font-family: "GOST Type BU";
+  text-transform: uppercase;
+  text-align: center;
+}
+.start__title {
+  font-size: 2rem;
+  color: black;
+  margin-bottom: 20px;
+  font-family: "GOST Type BU";
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+.start input[type=text] {
+  height: 40px;
+  width: 75%;
+  outline: none;
+  border: 1px solid rgba(210, 210, 210, 0.49);
+  padding: 5px 0 5px 15px;
+  font-size: 1.2rem;
+}
+.start input[type=text]::-webkit-input-placeholder {
+  color: rgba(210, 210, 210, 0.49);
+  font-size: 1.2rem;
+}
+.start input[type=text]::-moz-placeholder {
+  color: rgba(210, 210, 210, 0.49);
+  font-size: 1.2rem;
+}
+.start input[type=text]:-ms-input-placeholder {
+  color: rgba(210, 210, 210, 0.49);
+  font-size: 1.2rem;
+}
+.start input[type=text]::-ms-input-placeholder {
+  color: rgba(210, 210, 210, 0.49);
+  font-size: 1.2rem;
+}
+.start input[type=text]::placeholder {
+  color: rgba(210, 210, 210, 0.49);
+  font-size: 1.2rem;
+}
+.start input[type=text]:focus {
+  outline: none;
+}
+.start input[type=text]:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.start input[type=text]:focus::-moz-placeholder {
+  color: transparent;
+}
+.start input[type=text]:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.start input[type=text]:focus::-ms-input-placeholder {
+  color: transparent;
+}
+.start input[type=text]:focus::placeholder {
+  color: transparent;
+}
+.start__cross, .start__circle {
+  width: 52px;
+  height: 52px;
+  float: right;
+  border: 1px solid rgba(210, 210, 210, 0.49);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.start__cross img, .start__circle img {
+  width: 42px;
+  height: 42px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.start__cross:hover, .start__circle:hover {
+  cursor: pointer;
+}
+.start__cross {
+  margin-left: 10px;
+}
+.start__button {
+  display: block;
+  width: 50%;
+  border: none;
+  outline: none;
+  background: rgba(210, 210, 210, 0.49);
+  padding: 0.5em 0;
+  margin: 0 auto;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-family: "GOST Type BU";
+}
+.start__button:hover {
+  cursor: pointer;
+}
+.start__firstPlayer-Error, .start__secondPlayer-Error {
+  color: red;
+  font-size: 1rem;
+  font-family: "GOST Type BU";
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  display: block;
+  text-align: start;
+}
+
+.choose {
+  background: green;
 }

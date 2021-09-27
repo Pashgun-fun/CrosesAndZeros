@@ -19,30 +19,10 @@ body{
   }
   &__cross-name{
     margin-left: 15px;
-    &::after{
-      content: '';
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background: url("../img/close.svg") no-repeat;
-      background-size: cover;
-      margin-left: 30px;
-      vertical-align: sub;
-    }
   }
   &__circle-name{
     margin-left: auto;
     margin-right: 15px;
-    &::before{
-      content: '';
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background: url("../img/circle-ring.svg") no-repeat;
-      background-size: cover;
-      margin-right: 30px;
-      vertical-align: sub;
-    }
   }
   &__cross-player, &__circle-player{
     position: absolute;
@@ -123,4 +103,97 @@ body{
   position: absolute;
   left: 0;
   top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__section{
+    width: 60vw;
+    background: white;
+    border-radius: 5px;
+    padding: 20px;
+    label{
+      font-size: 1rem;
+      color: black;
+      font-family: "GOST Type BU";
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+  &__title{
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 20px;
+    font-family: "GOST Type BU";
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+  }
+  input[type = "text"]{
+    height: 40px;
+    width: 75%;
+    outline: none;
+    border: 1px solid rgba(210,210,210,0.49);
+    padding: 5px 0 5px 15px;
+    font-size: 1.2rem;
+    &::placeholder{
+      color: rgba(210,210,210,0.49);
+      font-size: 1.2rem;
+    }
+    &:focus{
+      outline: none;
+      &::placeholder{
+        color: transparent;
+      }
+    }
+  }
+  &__cross, &__circle{
+    width: 52px;
+    height: 52px;
+    float: right;
+    border: 1px solid rgba(210,210,210,0.49);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 42px;
+      height: 42px;
+      object-fit: cover;
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  &__cross{
+    margin-left: 10px;
+  }
+  &__button{
+    display: block;
+    width: 50%;
+    border: none;
+    outline: none;
+    background: rgba(210,210,210,0.49);
+    padding: 0.5em 0;
+    margin: 0 auto;
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-family: "GOST Type BU";
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  &__firstPlayer-Error, &__secondPlayer-Error {
+    color: red;
+    font-size: 1rem;
+    font-family: "GOST Type BU";
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    display: block;
+    text-align: start;
+  }
+}
+.choose{
+  background: green;
 }
